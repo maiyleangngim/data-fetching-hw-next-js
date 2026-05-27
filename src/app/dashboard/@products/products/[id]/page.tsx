@@ -1,5 +1,5 @@
+import DetailPageModalComponent from "@/components/modal/DetailPageComponent";
 import DetailProductModalComponent from "@/components/modal/DetailProductModalComponent";
-import { ProductType } from "@/lib/product-type/product";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_ISHOP_API_URL
 
@@ -28,7 +28,8 @@ export default async function Routeuuid({
   return (
     <div>
       {/* display data from api here */}
-          <DetailProductModalComponent
+      <h1 className="text-4xl p-8">Here is the Display page details</h1>
+          <DetailPageModalComponent
             uuid={product.uuid}
             key={product.uuid}
             thumbnail={product.thumbnail}

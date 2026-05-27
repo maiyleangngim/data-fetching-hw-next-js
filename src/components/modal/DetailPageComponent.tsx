@@ -5,12 +5,9 @@
 "use client";
 import { ProductType } from "@/lib/product-type/product";
 import { Card, Modal } from "flowbite-react";
-import { useState } from "react";
 
-export default function DetailProductModalComponent({thumbnail, name, priceOut }: ProductType) {
-    const [openModal, setOpenModal] = useState(true);
+export default function DetailPageModalComponent({thumbnail, name, priceOut }: ProductType) {
   return (
-          <Modal show={openModal} onClose={() => setOpenModal(false)} className="p-8">
     
       <Card
         className="max-w-sm"
@@ -78,6 +75,6 @@ export default function DetailProductModalComponent({thumbnail, name, priceOut }
           </a>
         </div>
       </Card>
-      </Modal>
+
   )
 }

@@ -28,6 +28,7 @@ export default async function Routeuuid({
   return (
     <div>
       {/* display data from api here */}
+      <h1>Should be pop up</h1>
           <DetailProductModalComponent
             uuid={product.uuid}
             key={product.uuid}

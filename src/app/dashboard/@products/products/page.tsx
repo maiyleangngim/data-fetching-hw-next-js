@@ -10,8 +10,8 @@ async function getProducts() {
       cache: 'no-store'
     })
     const products = await res?.json();
-    console.log(`Product data: ${products?.content}`)
-    return products;// data fetch api which display
+    console.log(`Product data:`, products?.data || products)
+    return products; // data fetch api which display
 
 
   } catch (error) {
@@ -57,8 +57,6 @@ function ProductRenderingProcess() {
   return (
 
     <div>
-
-      <h1>yoofosfngfsnlsd</h1>
     
       {/* display data from api here */}
       <div className="flex gap-5">
