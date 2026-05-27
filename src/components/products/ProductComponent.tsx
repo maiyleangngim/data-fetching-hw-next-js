@@ -1,4 +1,4 @@
-import { ProductType } from "@/app/lib/product-type/product";
+import { ProductType } from "@/lib/product-type/product";
 import { Card } from "flowbite-react";
 
 

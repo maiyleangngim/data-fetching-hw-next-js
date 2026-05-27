@@ -1,6 +1,5 @@
 import React from "react";
-import { AsideComponentDashboard } from "../components/dashboard/AsideComponentDashboard";
-
+import { AsideComponentDashboard } from "@/components/dashboard/AsideComponentDashboard";
 
 export default function DashBoardLayout({
     children,
