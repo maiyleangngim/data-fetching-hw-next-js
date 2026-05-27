@@ -4,6 +4,15 @@ import withFlowbiteReact from "flowbite-react/plugin/nextjs";
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.pinimg.com',
+      },
+    ],
+  },
 };
 
 export default withFlowbiteReact(nextConfig);

@@ -1,3 +1,4 @@
+import { EditProductModalComponent } from "@/components/modal/EditProductModelComponent";
 
 
 
@@ -7,7 +8,7 @@
 export default function EditProductModal(){
     return (
         <div>
-            Jg jenh ah nis kleng Blue box when we click on
+            <EditProductModalComponent />
         </div>
     )
 }

@@ -15,7 +15,7 @@ async function getProducts() {
 
 
   } catch (error) {
-    throw new Error("Fail to fetch")
+    throw new Error(`Fail to fetch: ${error}`)
   }
 }
 
@@ -52,15 +52,19 @@ function ProductRenderingProcess() {
 
   // using use hook to fetch data from server
   const { data: products } = use(getProducts())
+
+  
   return (
 
     <div>
 
-
+      <h1>yoofosfngfsnlsd</h1>
+    
       {/* display data from api here */}
       <div className="flex gap-5">
         {
           products?.content?.map(({ uuid, thumbnail, priceOut, name }: ProductType) => (
+            <Link key={uuid} href={`/dashboard/products/${uuid}`}>
             <ProductComponent
               uuid={uuid}
               key={uuid}
@@ -68,10 +72,16 @@ function ProductRenderingProcess() {
               priceOut={priceOut}
               name={name}
             />
+            </Link>
+
           ))
         }
 
       </div>
+
+      
+
+
     </div>
   )
 }

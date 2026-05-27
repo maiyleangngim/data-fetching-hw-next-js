@@ -1,9 +1,15 @@
+
+
+
+
+"use client";
 import { ProductType } from "@/lib/product-type/product";
-import { Card } from "flowbite-react";
+import { Card, Modal } from "flowbite-react";
+import { useState } from "react";
 
-
-export default function ProductComponent({ thumbnail, name, priceOut }: ProductType) {
+export default function DetailProductModalComponent({uuid, thumbnail, name, priceOut }: ProductType) {
   return (
+    
       <Card
         className="max-w-sm"
         imgAlt="Apple Watch Series 7 in colors pink, silver, and black"

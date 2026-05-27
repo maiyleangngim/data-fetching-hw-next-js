@@ -14,7 +14,7 @@ export function CreateProductModalComponent() {
     <>
       <Button onClick={() => setOpenModal(true)}>Toggle modal</Button>
       <Modal show={openModal} onClose={() => setOpenModal(false)} className="p-8">
-        <form className="flex max-w-md flex-col gap-4">
+        <form className="flex max-w-md flex-col gap-4 m-8">
       <div>
         <div className="mb-2 block">
           <Label htmlFor="email1">Your email</Label>
