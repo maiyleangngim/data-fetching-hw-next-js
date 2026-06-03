@@ -1,6 +1,49 @@
 import DetailPageModalComponent from "@/components/modal/DetailPageComponent";
+import { Metadata } from "next";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_ISHOP_API_URL
+
+type Props = {
+  params: Promise<{ id: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { id } = await params;
+    const product = await getProductsById(id);
+
+    const title = product.name;
+    const description = product.description;
+    const image = product.thumbnail;
+    const url = `https://data-fetching-hw-next-js-ruze.vercel.app/dashboard/products/${id}`;
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            url,
+            type: "website",
+            images: [
+                {
+                    url: image,
+                    width: 1200,
+                    height: 630,
+                    alt: product.name,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [image],
+        },
+    };
+}
+
+
 
 // async funciton to get products
 async function getProductsById(uuid: string) {

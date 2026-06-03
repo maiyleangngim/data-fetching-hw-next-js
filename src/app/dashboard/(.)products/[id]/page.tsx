@@ -56,6 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const image = product.thumbnail;
     const url = `https://data-fetching-hw-next-js-ruze.vercel.app/dashboard/products/${id}`;
 
+    console.log("vefgerf" ,product)
     return {
         title,
         description,
