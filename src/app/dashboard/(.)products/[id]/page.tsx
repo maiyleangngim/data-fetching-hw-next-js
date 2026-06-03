@@ -23,28 +23,63 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
  
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  // read route params
-  const { id } = await params
+// export async function generateMetadata(
+//   { params }: Props,
+//   parent: ResolvingMetadata
+// ): Promise<Metadata> {
+//   // read route params
+//   const { id } = await params
  
-  // fetch data
-  const product = await fetch(`${base_url}/products/${id}`).then((res) => res.json())
+//   // fetch data
+//   const product = await fetch(`${base_url}/products/${id}`).then((res) => res.json())
 
-  console.log("kkkkkkkkkkkkkkkkkkkkkk" ,product)
+//   console.log("kkkkkkkkkkkkkkkkkkkkkk" ,product)
  
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || []
+//   // optionally access and extend (rather than replace) parent metadata
+//   const previousImages = (await parent).openGraph?.images || []
  
-  return {
-    title: product.name,
-    description: product.description,
-    openGraph: {
-      images: product?.thumbnail
-    }
-  }
+//   return {
+//     title: product.name,
+//     description: product.description,
+//     openGraph: {
+//       images: product?.thumbnail
+//     }
+//   }
+// }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { id } = await params;
+    const product = await getProductsById(id);
+
+    const title = product.name;
+    const description = product.description;
+    const image = product.thumbnail;
+    const url = `https://data-fetching-hw-next-js-ruze.vercel.app/dashboard/products/${id}`;
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            url,
+            type: "website",
+            images: [
+                {
+                    url: image,
+                    width: 1200,
+                    height: 630,
+                    alt: product.name,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [image],
+        },
+    };
 }
 
 
