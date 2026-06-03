@@ -1,5 +1,4 @@
 import DetailProductModalComponent from "@/components/modal/DetailProductModalComponent";
-import { ProductType } from "@/lib/product-type/product";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_ISHOP_API_URL
 
@@ -16,6 +15,8 @@ async function getProductsById(uuid: string) {
     throw new Error(`Fail to fetch: ${error}`);
   }
 }
+
+
 
 
 export default async function Routeuuid({

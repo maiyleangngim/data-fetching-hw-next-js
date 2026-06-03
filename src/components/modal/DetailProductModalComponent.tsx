@@ -7,13 +7,11 @@ import { ProductType } from "@/lib/product-type/product";
 import { Card, Modal } from "flowbite-react";
 import { useState } from "react";
 
-export default function DetailProductModalComponent({thumbnail, name, priceOut }: ProductType) {
-    const [openModal, setOpenModal] = useState(true);
+export default function DetailProductModalComponent({ thumbnail, name, priceOut }: ProductType) {
+  const [openModal, setOpenModal] = useState(true);
   return (
-          <Modal show={openModal} onClose={() => setOpenModal(false)} className="p-8">
-    
+    <Modal show={openModal} onClose={() => setOpenModal(false)}>
       <Card
-        className="max-w-sm"
         imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
         imgSrc={thumbnail}
         suppressHydrationWarning
@@ -78,6 +76,6 @@ export default function DetailProductModalComponent({thumbnail, name, priceOut }
           </a>
         </div>
       </Card>
-      </Modal>
+    </Modal>
   )
 }

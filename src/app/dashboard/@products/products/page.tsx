@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import ProductComponent from "@/components/products/ProductComponent";
 import { ProductType } from "@/lib/product-type/product";
 import Link from "next/link"
@@ -34,7 +35,7 @@ function LoadingSuspenseComponent(){
 }
 export default function ProductPageRoute() {
   return (
-    <div>
+    <div >
          {/* nav bar for create and edit */}
       <div className="flex gap-5">
         <Link href={'/dashboard/create'}>Create</Link>
@@ -59,7 +60,7 @@ function ProductRenderingProcess() {
     <div>
     
       {/* display data from api here */}
-      <div className="flex gap-5">
+      <div className="grid grid-cols-4 gap-8">
         {
           products?.content?.map(({ uuid, thumbnail, priceOut, name }: ProductType) => (
             <Link key={uuid} href={`/dashboard/products/${uuid}`}>

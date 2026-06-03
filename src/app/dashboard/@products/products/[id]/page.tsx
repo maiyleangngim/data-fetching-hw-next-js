@@ -1,5 +1,4 @@
 import DetailPageModalComponent from "@/components/modal/DetailPageComponent";
-import DetailProductModalComponent from "@/components/modal/DetailProductModalComponent";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_ISHOP_API_URL
 

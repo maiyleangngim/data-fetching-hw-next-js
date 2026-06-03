@@ -4,13 +4,13 @@
 
 "use client";
 import { ProductType } from "@/lib/product-type/product";
-import { Card, Modal } from "flowbite-react";
+import { Card } from "flowbite-react";
 
 export default function DetailPageModalComponent({thumbnail, name, priceOut }: ProductType) {
   return (
     
       <Card
-        className="max-w-sm"
+        className="container mx-auto w-[600px]"
         imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
         imgSrc={thumbnail}
         suppressHydrationWarning
