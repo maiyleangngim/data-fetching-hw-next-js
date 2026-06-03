@@ -1,4 +1,5 @@
 import DetailProductModalComponent from "@/components/modal/DetailProductModalComponent";
+import { Metadata, ResolvingMetadata } from "next";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_ISHOP_API_URL
 
@@ -16,6 +17,33 @@ async function getProductsById(uuid: string) {
   }
 }
 
+
+type Props = {
+  params: Promise<{ id: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+ 
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const { id } = await params
+ 
+  // fetch data
+  const product = await fetch(`${base_url}/products/${id}`).then((res) => res.json())
+ 
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+ 
+  return {
+    title: product.name,
+    description: product.description,
+    openGraph: {
+      images: product?.thumbnail
+    }
+  }
+}
 
 
 

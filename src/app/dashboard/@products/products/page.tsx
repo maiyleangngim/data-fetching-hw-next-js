@@ -7,7 +7,7 @@ import { Suspense, use } from "react";
 // async funciton to get products
 async function getProducts() {
   try {
-    const res = await fetch('http://localhost:3000/api/product', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_ISHOP_API_URL}/products`, {
       cache: 'no-store'
     })
     const products = await res?.json();
@@ -52,7 +52,11 @@ export default function ProductPageRoute() {
 function ProductRenderingProcess() {
 
   // using use hook to fetch data from server
-  const { data: products } = use(getProducts())
+  const data  = use(getProducts())
+
+  console.log("jjjjjjjjjjjjjjjjjj",data)
+
+  const products = data;
 
   
   return (
